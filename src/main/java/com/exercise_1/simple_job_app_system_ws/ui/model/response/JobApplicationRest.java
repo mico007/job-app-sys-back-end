@@ -14,7 +14,7 @@ public class JobApplicationRest {
     private String website;
     private String linkedin;
     private String status;
-    private byte[] data;
+    private String data;
 
     public String getApplicationId() {
         return applicationId;
@@ -120,11 +120,11 @@ public class JobApplicationRest {
         this.status = status;
     }
 
-    public byte[] getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(byte[] data) {
+    public void setData(String data) {
         this.data = data;
     }
 }

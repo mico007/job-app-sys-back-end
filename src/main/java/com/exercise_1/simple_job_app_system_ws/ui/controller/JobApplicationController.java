@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @CrossOrigin
@@ -129,10 +130,13 @@ public class JobApplicationController {
 
         // Load file from database
         JobApplicationDto downloadedFile = jobApplService.getFile(applicationId);
+        //byte[] data=downloadedFile.getData().getBytes();
+
+        byte[] decodedString = Base64.getDecoder().decode(downloadedFile.getData());
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType("application/pdf"))
-                .body(new ByteArrayResource(downloadedFile.getData()));
+                .body(new ByteArrayResource(decodedString));
     }
 
 

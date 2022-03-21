@@ -17,7 +17,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -151,7 +153,8 @@ public class JobApplServiceImpl implements JobApplicationService {
                 throw new JobApplServiceException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
-            jobApplEntity.setData(file.getBytes());
+            String dataFile=new String(Base64.getEncoder().encode(file.getBytes()));
+            jobApplEntity.setData(dataFile);
 
             JobApplicationEntity savedFile = jobApplRepository.save(jobApplEntity);
 

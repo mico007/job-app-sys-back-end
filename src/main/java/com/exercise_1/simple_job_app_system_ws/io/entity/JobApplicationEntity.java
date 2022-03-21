@@ -30,7 +30,7 @@ public class JobApplicationEntity implements Serializable {
     @Column(nullable = false, length = 50)
     private String country;
     @Lob
-    private byte[] data;
+    private String  data;
     private String github;
     private String website;
     private String linkedin;
@@ -148,11 +148,11 @@ public class JobApplicationEntity implements Serializable {
         this.status = status;
     }
 
-    public byte[] getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(byte[] data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
