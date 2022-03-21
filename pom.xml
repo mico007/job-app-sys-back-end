@@ -14,7 +14,7 @@
 	<name>simple-job-app-system-ws </name>
 	<description>Back-End for a Simple Job Application System </description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
