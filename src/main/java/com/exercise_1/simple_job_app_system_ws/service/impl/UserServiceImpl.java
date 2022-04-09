@@ -66,7 +66,12 @@ public class UserServiceImpl implements UserService {
 
         UserEntity userEntity = userRepository.findByEmail(userDto.getEmail());
 
-        if(userEntity == null) throw new JobApplServiceException("Invalid Credentials");
+        if(userEntity == null) throw new JobApplServiceException("Invalid Username");
+
+        if (
+                !bCryptPasswordEncoder.matches(userDto.getPassword(), userEntity.getEncryptedPassword())
+        ) throw new JobApplServiceException("Invalid Password");
+
 
 
         String token = utils.generateToken(userEntity.getUserId());

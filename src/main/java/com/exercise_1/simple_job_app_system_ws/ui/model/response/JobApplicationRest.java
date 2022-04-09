@@ -1,5 +1,7 @@
 package com.exercise_1.simple_job_app_system_ws.ui.model.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class JobApplicationRest {
     private String applicationId;
     private String firstname;
@@ -14,6 +16,7 @@ public class JobApplicationRest {
     private String website;
     private String linkedin;
     private String status;
+    @JsonIgnore
     private String data;
 
     public String getApplicationId() {
